@@ -27,8 +27,12 @@ function saveDataForm(evtent) {
 function updateDataForm() {
   const dataContent = localStorage.getItem(MESSAGE_KEY) || '';
   if (dataContent) {
-    const convertingDataContent = JSON.parse(dataContent);
-    textarea.value = convertingDataContent.message;
-    input.value = convertingDataContent.email;
+    try {
+      const convertingDataContent = JSON.parse(dataContent);
+      textarea.value = convertingDataContent.message;
+      input.value = convertingDataContent.email;
+    } catch (err) {
+      console.log('error');
+    }
   }
 }
