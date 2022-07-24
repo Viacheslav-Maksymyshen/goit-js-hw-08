@@ -14,7 +14,7 @@ form.addEventListener('input', throttle(saveDataForm, 500));
 
 function onFormSubmit(evtent) {
   evtent.preventDefault();
-  if (textarea.value === '' || input.value === '') {
+  if (textarea.value.trim() === '' || input.value.trim() === '') {
     alert('Some field is empty');
     return;
   }
@@ -28,8 +28,8 @@ function saveDataForm(evtent) {
   // formData[evtent.target.name] = evtent.target.value;
   // localStorage.setItem(MESSAGE_KEY, JSON.stringify(formData));
 
-  const emailValue = input.value;
-  const messageValue = textarea.value;
+  const emailValue = input.value.trim();
+  const messageValue = textarea.value.trim();
 
   localStorage.setItem(
     MESSAGE_KEY,
